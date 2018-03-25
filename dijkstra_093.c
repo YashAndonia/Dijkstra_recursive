@@ -11,6 +11,7 @@ int g[n][n]={
 
 
 
+
 int check(){
 	int i,j,k=0;
 	for(i=0;i<n;i++){
