@@ -6,9 +6,8 @@ int g[n][n]={
 {0,3,0,0,0},
 {3,0,10,0,2},
 {0,10,0,5,6},
-{0,0,1,0,8},
+{0,0,5,0,8},
 {0,2,6,8,0}};
-
 
 
 
@@ -101,6 +100,18 @@ nxt=0;
 	
 }
 
+void path(int x,int start){
+  
+  if(from[x]!=start){
+  printf("%d<-",from[x]);
+  path(from[x],start);
+  }
+  else
+  return;
+  
+  
+}
+
 void main(){
 int i;
 int y=check();
@@ -121,9 +132,17 @@ cost[start]=0;
 if(y==0){
 dijkstra(start);
   
-for(i=0;i<n;i++){
-	printf("The path from %d is to %d and cost for that path is %d\n",i,from[i],cost[i]);
-}
+for(i=1;i<n;i++){
+/*  if(cost[i]!=999)
+printf("You reach node  %d from node  %d and cost for that path is %d\n",i,from[i],cost[i]);
+else
+	printf("There is no path from %d to %d",i,from[i]);
+*/
+printf("\nYou reach node  %d from node  %d and cost for that path is %d\n",i,from[i],cost[i]);
+printf("\nThe path is:%d<-",i);
+  path(i,start);
+
+printf("0");}
 }
 else
 	printf("Incorrect graph");
